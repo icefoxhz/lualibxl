@@ -19,7 +19,7 @@ set(LINK_DIR
 include_directories(${INC_DIR})
 link_directories(${LINK_DIR})
 
-add_library(${CMAKE_PROJECT_NAME} SHARED libraryEx.cpp StringUtil.hpp)
+add_library(${CMAKE_PROJECT_NAME} SHARED libraryMulti.cpp StringUtil.hpp)
 #
 target_link_libraries(${CMAKE_PROJECT_NAME}
         libxl.lib

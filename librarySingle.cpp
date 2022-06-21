@@ -14,113 +14,109 @@ Book *book = nullptr;
 const char *filePath = nullptr;
 Sheet *currentSheet = nullptr;
 
-//typedef struct MyBook{
-//    Book *books;
-//};
-
 // -----------------------------------
-typedef struct Student{
-    lua_Integer age;
-    char name[20];
-}Stu;
-
-int newData(lua_State *L) {
-    lua_newuserdata(L, sizeof(Stu));
-
-    return 1;
-}
-
-int setData(lua_State *L)
-{
-    Stu *pData = (Stu *)lua_touserdata(L, 1);
-    const char* name = luaL_checkstring(L, 2);
-    lua_Integer age = luaL_checkinteger(L, 3);
-    pData->age = age;
-    strcpy_s(pData->name, 20, name);
-    return 0;
-}
-
-int getData(lua_State *L)
-{
-    Stu *pData = (Stu *)lua_touserdata(L, 1);
-    lua_pushstring(L, pData->name);
-    lua_pushinteger(L, pData->age);
-
-    return 2;
-}
-//------------------------------
-
-int sayHelloFunc(lua_State *L) {
-    printf("hello world!");
-    return 0;
-}
-
-int createTest(lua_State *L) {
-    Book *book = xlCreateBook();    //  xls
-//    Book* book = xlCreateXMLBook();   // xlsx
-    if (book) {
-        book->setKey("hz", "windows-202f240d0bcee30069b36468a7p1r8ge");
-//        book->setLocale("utf-8");
-        Sheet *sheet = book->addSheet("Sheet1");
-        if (sheet) {
-            sheet->writeStr(2, 1, "Hello, World 你好 !");
-            sheet->writeNum(4, 1, 1000);
-            sheet->writeNum(5, 1, 2000);
-
-            Font *font = book->addFont();
-            font->setColor(COLOR_RED);
-            font->setBold(true);
-            Format *boldFormat = book->addFormat();
-            boldFormat->setFont(font);
-            sheet->writeFormula(6, 1, "SUM(B5:B6)", boldFormat);
-
-            Format *dateFormat = book->addFormat();
-            dateFormat->setNumFormat(NUMFORMAT_DATE);
-            sheet->writeNum(8, 1, book->datePack(2008, 4, 29), dateFormat);
-
-            sheet->setCol(1, 1, 12);
-        }
-
-        if (!book->save("D:\\example.xls")) {
-            std::cout << book->errorMessage() << std::endl;
-        }
-
-        book->release();
-    }
-    return 0;
-}
-
-int readTest(lua_State *L) {
-    Book *book = xlCreateBook();    //  xls
-//    Book* book = xlCreateXMLBook();   // xlsx
-    if (book) {
-        book->setKey("hz", "windows-202f240d0bcee30069b36468a7p1r8ge");
-//        book->setLocale("utf-8");
-
-        if (book->load("D:\\1.xls")) {
-            Sheet *sheetReader = book->getSheet(0);
-            if (sheetReader) {
-                {
-                    CellType cellType = sheetReader->cellType(2, 1);
-                    if (cellType == libxl::CELLTYPE_STRING) {
-                        const char *val = sheetReader->readStr(2, 1);
-//                        cout << val << endl;
-                    }
-                }
-
-                {
-                    CellType cellType = sheetReader->cellType(4, 1);
-                    if (cellType == libxl::CELLTYPE_NUMBER) {
-                        double d = sheetReader->readNum(4, 1);
-                        cout << d << endl;
-                    }
-                }
-
-            }
-        }
-    }
-    return 0;
-}
+//typedef struct Student{
+//    lua_Integer age;
+//    char name[20];
+//}Stu;
+//
+//int newData(lua_State *L) {
+//    lua_newuserdata(L, sizeof(Stu));
+//
+//    return 1;
+//}
+//
+//int setData(lua_State *L)
+//{
+//    Stu *pData = (Stu *)lua_touserdata(L, 1);
+//    const char* name = luaL_checkstring(L, 2);
+//    lua_Integer age = luaL_checkinteger(L, 3);
+//    pData->age = age;
+//    strcpy_s(pData->name, 20, name);
+//    return 0;
+//}
+//
+//int getData(lua_State *L)
+//{
+//    Stu *pData = (Stu *)lua_touserdata(L, 1);
+//    lua_pushstring(L, pData->name);
+//    lua_pushinteger(L, pData->age);
+//
+//    return 2;
+//}
+////------------------------------
+//
+//int sayHelloFunc(lua_State *L) {
+//    printf("hello world!");
+//    return 0;
+//}
+//
+//int createTest(lua_State *L) {
+//    Book *book = xlCreateBook();    //  xls
+////    Book* book = xlCreateXMLBook();   // xlsx
+//    if (book) {
+//        book->setKey("hz", "windows-202f240d0bcee30069b36468a7p1r8ge");
+////        book->setLocale("utf-8");
+//        Sheet *sheet = book->addSheet("Sheet1");
+//        if (sheet) {
+//            sheet->writeStr(2, 1, "Hello, World 你好 !");
+//            sheet->writeNum(4, 1, 1000);
+//            sheet->writeNum(5, 1, 2000);
+//
+//            Font *font = book->addFont();
+//            font->setColor(COLOR_RED);
+//            font->setBold(true);
+//            Format *boldFormat = book->addFormat();
+//            boldFormat->setFont(font);
+//            sheet->writeFormula(6, 1, "SUM(B5:B6)", boldFormat);
+//
+//            Format *dateFormat = book->addFormat();
+//            dateFormat->setNumFormat(NUMFORMAT_DATE);
+//            sheet->writeNum(8, 1, book->datePack(2008, 4, 29), dateFormat);
+//
+//            sheet->setCol(1, 1, 12);
+//        }
+//
+//        if (!book->save("D:\\example.xls")) {
+//            std::cout << book->errorMessage() << std::endl;
+//        }
+//
+//        book->release();
+//    }
+//    return 0;
+//}
+//
+//int readTest(lua_State *L) {
+//    Book *book = xlCreateBook();    //  xls
+////    Book* book = xlCreateXMLBook();   // xlsx
+//    if (book) {
+//        book->setKey("hz", "windows-202f240d0bcee30069b36468a7p1r8ge");
+////        book->setLocale("utf-8");
+//
+//        if (book->load("D:\\1.xls")) {
+//            Sheet *sheetReader = book->getSheet(0);
+//            if (sheetReader) {
+//                {
+//                    CellType cellType = sheetReader->cellType(2, 1);
+//                    if (cellType == libxl::CELLTYPE_STRING) {
+//                        const char *val = sheetReader->readStr(2, 1);
+////                        cout << val << endl;
+//                    }
+//                }
+//
+//                {
+//                    CellType cellType = sheetReader->cellType(4, 1);
+//                    if (cellType == libxl::CELLTYPE_NUMBER) {
+//                        double d = sheetReader->readNum(4, 1);
+//                        cout << d << endl;
+//                    }
+//                }
+//
+//            }
+//        }
+//    }
+//    return 0;
+//}
 
 bool FileExists(LPCTSTR szFilePath) {
     FILE *f = nullptr;
@@ -156,7 +152,7 @@ int openFile(lua_State *L) {
     return 1;
 }
 
-int addReadSheet(lua_State *L) {
+int addSheet(lua_State *L) {
     const char *sheetName = lua_tostring(L, -1);
     Sheet *sheet = book->addSheet(sheetName);
     lua_pushboolean(L, sheet != nullptr);
@@ -246,12 +242,12 @@ int closeFile(lua_State *L) {
 
 const luaL_Reg myLib[] =
         {
-                {"sayHello",          sayHelloFunc},
-                {"createTest",        createTest},
-                {"readTest",          readTest},
+//                {"sayHello",          sayHelloFunc},
+//                {"createTest",        createTest},
+//                {"readTest",          readTest},
                 {"openFile",          openFile},
                 {"setCurrentSheet",   setCurrentSheet},
-                {"addReadSheet",      addReadSheet},
+                {"addSheet",      addSheet},
                 {"getSheetCount",     getSheetCount},
                 {"getSheetName",      getSheetName},
                 {"readCurrentSheet",  readCurrentSheet},
@@ -259,9 +255,9 @@ const luaL_Reg myLib[] =
                 {"saveFile",          saveFile},
                 {"closeFile",         closeFile},
 
-                {"newData",         newData},
-                {"setData",         setData},
-                {"getData",         getData},
+//                {"newData",         newData},
+//                {"setData",         setData},
+//                {"getData",         getData},
 
                 {NULL, NULL}       //数组中最后一对必须是{NULL, NULL}，用来表示结束
         };
