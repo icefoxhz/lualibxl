@@ -67,7 +67,7 @@ int openFile(lua_State *L) {
     return 1;
 }
 
-int addReadSheet(lua_State *L) {
+int addSheet(lua_State *L) {
     auto *xl = (ST_EXECL *) lua_touserdata(L, 1);
     const char *sheetName = luaL_checkstring(L, 2);
 
@@ -168,7 +168,7 @@ const luaL_Reg myLib[] =
         {
                 {"openFile",          openFile},
                 {"newExecl",          newExecl},
-                {"addReadSheet",      addReadSheet},
+                {"addSheet",      addSheet},
                 {"setCurrentSheet",   setCurrentSheet},
                 {"getSheetCount",     getSheetCount},
                 {"getSheetName",      getSheetName},

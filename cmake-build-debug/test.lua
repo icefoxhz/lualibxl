@@ -25,7 +25,7 @@ end
 function test1()
     local xlsx1 = ExeclModel:new()
     if xlsx1:open("D:\\1.xlsx") then
-        if xlsx1:addReadSheet("测试123") then
+        if xlsx1:addSheet("测试123") then
             print("创建sheet成功")
         end
 
@@ -66,7 +66,7 @@ function test3()
             val2 = xlsx1:readCurrentSheet(16, 3)
             print(val1, val2)
 
-            if xlsx2:addReadSheet("s1") then
+            if xlsx2:addSheet("s1") then
                 print("创建sheet成功")
             end
 
