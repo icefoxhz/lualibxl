@@ -15,10 +15,8 @@ function test0()
             print("创建sheet成功")
         end
 
-        if xlsx1:setCurrentSheet(0) then
-            xlsx1:writeCurrentSheet(15, 3, "你好 lua")
-            xlsx1:writeCurrentSheet(16, 3, "阿斯顿发斯蒂芬斯蒂芬")
-        end
+        xlsx1:write(0, 15, 3, "你好 lua")
+        xlsx1:write(0, 16, 3, "阿斯顿发斯蒂芬斯蒂芬")
 
         print(xlsx1:getSheetCount())
 
@@ -30,25 +28,24 @@ function test1()
     local xlsx1 = ExeclModel:new()
     for _ = 1, 10 do
         if xlsx1:open("D:\\1.xlsx") then
-            if xlsx1:setCurrentSheet(0) then
-                val1 = xlsx1:readCurrentSheet(15, 3)
-                val2 = xlsx1:readCurrentSheet(16, 3)
-                print(val1, val2)
-            end
+            val1 = xlsx1:read(0, 15, 3)
+            val2 = xlsx1:read(0, 16, 3)
+            print(val1, val2)
+
             xlsx1:close()
         end
     end
+    xlsx1:release()
 end
 
 function test2()
     local xlsx1 = ExeclModel:new()
     if xlsx1:open("D:\\1.xlsx") then
-        if xlsx1:setCurrentSheet(0) then
-            val1 = xlsx1:readCurrentSheet(15, 3)
-            val2 = xlsx1:readCurrentSheet(16, 3)
-            print(val1, val2)
-        end
+        val1 = xlsx1:read(0, 15, 3)
+        val2 = xlsx1:read(0, 16, 3)
+        print(val1, val2)
     end
+    --xlsx1:close()
     xlsx1:release()
 end
 
@@ -58,22 +55,17 @@ function test3()
     print(xlsx1.instance, xlsx2.instance)
 
     if xlsx1:open("D:\\1.xlsx") and xlsx2:open("D:\\2.xlsx") then
-        if xlsx1:setCurrentSheet(0) then
-            print("xlsx1 setCurrentSheet ok")
-            val1 = xlsx1:readCurrentSheet(15, 3)
-            val2 = xlsx1:readCurrentSheet(16, 3)
-            print(val1, val2)
 
-            if xlsx2:addSheet("s1") then
-                print("创建sheet成功")
-            end
+        val1 = xlsx1:read(0, 15, 3)
+        val2 = xlsx1:read(0, 16, 3)
+        print(val1, val2)
 
-            if xlsx2:setCurrentSheet(0) then
-                print("xlsx2 setCurrentSheet ok")
-                xlsx2:writeCurrentSheet(10, 3, val1)
-                xlsx2:writeCurrentSheet(11, 3, val2)
-            end
+        if xlsx2:addSheet("s1") and xlsx2:addSheet("s2") then
+            print("创建sheet成功")
         end
+
+        xlsx2:write(1, 10, 3, val1)
+        xlsx2:write(1, 11, 3, val2)
     end
 
     xlsx1:release()

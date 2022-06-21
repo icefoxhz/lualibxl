@@ -23,8 +23,8 @@ function HzExeclClass:open(filePath)
     return model.openFile(self.instance, filePath)
 end
 
-function HzExeclClass:addReadSheet(sheetName)
-    return model.addReadSheet(self.instance, sheetName)
+function HzExeclClass:addSheet(sheetName)
+    return model.addSheet(self.instance, sheetName)
 end
 
 function HzExeclClass:setCurrentSheet(idx)
@@ -37,6 +37,19 @@ end
 
 function HzExeclClass:writeCurrentSheet(row, column, val)
     model.writeCurrentSheet(self.instance, row, column, val)
+end
+
+function HzExeclClass:read(sheetIdx, row, column)
+    if model.setCurrentSheet(self.instance, sheetIdx) then
+        return model.readCurrentSheet(self.instance, row, column)
+    end
+    return nil
+end
+
+function HzExeclClass:write(sheetIdx, row, column, val)
+    if model.setCurrentSheet(self.instance, sheetIdx) then
+        model.writeCurrentSheet(self.instance, row, column, val)
+    end
 end
 
 function HzExeclClass:getSheetCount()
