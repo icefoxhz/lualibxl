@@ -1,0 +1,3 @@
+D:/project/C++/windows/clion/lualibxl/cmake-build-debug/CMakeFiles/lualibxlCore.dir
+D:/project/C++/windows/clion/lualibxl/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/project/C++/windows/clion/lualibxl/cmake-build-debug/CMakeFiles/rebuild_cache.dir
