@@ -8,7 +8,8 @@ add_definitions(-w)
 
 
 set(INC_DIR
-        "E:/tools/windows/c++/thirdLib/lua-5.4.4/src"
+#        "E:/tools/windows/c++/thirdLib/lua-5.4.4/src"
+        "E:/tools/windows/lua/LuaJIT-2.1.0-beta3/src"
         "E:/tools/windows/c++/thirdLib/libxl-4.0.4.0/include_cpp"
         )
 #

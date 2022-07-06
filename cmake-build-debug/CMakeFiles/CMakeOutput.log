@@ -50,16 +50,16 @@ The CXX compiler identification is MSVC, found in "D:/project/C++/windows/clion/
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/project/C++/windows/clion/lualibxl/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe cmTC_7e417 && [1/2] Building C object CMakeFiles\cmTC_7e417.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_7e417.exe
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe cmTC_c48a2 && [1/2] Building C object CMakeFiles\cmTC_c48a2.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_c48a2.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: D:/project/C++/windows/clion/lualibxl/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe cmTC_e9077 && [1/2] Building CXX object CMakeFiles\cmTC_e9077.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_e9077.exe
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe cmTC_3f153 && [1/2] Building CXX object CMakeFiles\cmTC_3f153.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_3f153.exe
 
 
 

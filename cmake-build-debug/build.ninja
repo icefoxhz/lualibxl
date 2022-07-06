@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_lualibxlCore: phony || CMakeFiles\lualib
 build CMakeFiles\lualibxlCore.dir\libraryMulti.cpp.obj: CXX_COMPILER__lualibxlCore_Debug D$:\project\C++\windows\clion\lualibxl\libraryMulti.cpp || cmake_object_order_depends_target_lualibxlCore
   DEFINES = -DlualibxlCore_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd   -w
-  INCLUDES = -IE:\tools\windows\c++\thirdLib\lua-5.4.4\src -IE:\tools\windows\c++\thirdLib\libxl-4.0.4.0\include_cpp
+  INCLUDES = -IE:\tools\windows\lua\LuaJIT-2.1.0-beta3\src -IE:\tools\windows\c++\thirdLib\libxl-4.0.4.0\include_cpp
   OBJECT_DIR = CMakeFiles\lualibxlCore.dir
   OBJECT_FILE_DIR = CMakeFiles\lualibxlCore.dir
   TARGET_COMPILE_PDB = CMakeFiles\lualibxlCore.dir\

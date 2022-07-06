@@ -10,6 +10,29 @@
 
 local model = require("lualibxlCore")
 
+--function eval(equation)
+--    if(type(equation) == "string") then
+--        local eval = load("return "..equation);
+--        if(type(eval) == "function") then
+--            return  eval();
+--        end
+--    end
+--end
+--
+---- Р§згЃК releaseTable = {china="abc", ice="fire"}
+--string.replace = function(s, replaceTable)
+--    if type(replaceTable) == "table" then
+--        local val = s
+--        for k, v in pairs(replaceTable) do
+--            val = string.gsub(val, k, v)
+--        end
+--        return val
+--    end
+--
+--    return s
+--end
+
+
 HzExeclClass = { }
 function HzExeclClass:new ()
     local obj = { instance = model.newExecl() }
@@ -56,6 +79,10 @@ function HzExeclClass:getSheetCount()
     return model.getSheetCount(self.instance)
 end
 
+--function HzExeclClass:cal(calStr)
+--    return eval(calStr)
+--end
+
 function HzExeclClass:close()
     if self.instance ~= nil then
         model.closeFile(self.instance)
@@ -70,5 +97,6 @@ function HzExeclClass:release()
 end
 
 --print(HzExeclClass:new().instance, HzExeclClass:new().instance)
+
 
 return HzExeclClass

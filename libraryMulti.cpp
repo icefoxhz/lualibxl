@@ -7,7 +7,9 @@
 
 using namespace std;
 using namespace libxl;
-#pragma  comment(lib, "lua54.lib")
+//#pragma  comment(lib, "lua54.lib")
+#pragma  comment(lib, "lua51.lib")
+//#pragma  comment(lib, "luajit.lib")
 
 //  修改测试前一定先把  E:\tools\windows\lua\5.4.4\lib\lua\5.4 下面的删了， 不然加载的是这个里
 //  修改测试前一定先把  E:\tools\windows\lua\5.4.4\lib\lua\5.4 下面的删了， 不然加载的是这个里

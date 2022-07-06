@@ -82,7 +82,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/lualibxl
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/lualibxlCore
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/link.exe
@@ -201,15 +201,6 @@ lualibxlCore_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 lualibxlCore_SOURCE_DIR:STATIC=D:/project/C++/windows/clion/lualibxl
-
-//Value Computed by CMake
-lualibxl_BINARY_DIR:STATIC=D:/project/C++/windows/clion/lualibxl/cmake-build-debug
-
-//Value Computed by CMake
-lualibxl_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-lualibxl_SOURCE_DIR:STATIC=D:/project/C++/windows/clion/lualibxl
 
 
 ########################
